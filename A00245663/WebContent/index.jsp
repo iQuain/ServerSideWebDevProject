@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Rocket League Tournament</title>
 <meta charset="ISO-8859-1">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,13 +31,16 @@ body, html {
 	<div
 		class="bgimg w3-display-container w3-animate-opacity w3-text-white">
 		<div class="w3-display-topleft w3-padding-large w3-xlarge"></div>
-		<div class="w3-display-middle">
-			<h1 class="w3-jumbo w3-animate-top">Sign Up Now</h1>
-			<hr class="w3-border-grey" style="margin: auto; width: 40%">
+		<div class="w3-display-middle" style="background-color:rgba(255,255,255,0.2); padding:5px">
+				<h1 class="w3-jumbo w3-animate-top" style="text-align:center; opacity:1.2 !important">Sign Up Now</h1>
+				<hr class="w3-border-grey" style="margin: auto; width: 40%">
 		</div>
-		<div class="w3-display-bottommiddle w3-padding-large">
-			<a href="register.jsp">Register</a>&nbsp; 
+		<div class="w3-display-bottommiddle w3-padding-large" style="text-align:center">
+			<a href="player_register.jsp">Player Registration</a>&nbsp; 
+			|&nbsp;
 			<a href="login.jsp">Login</a>&nbsp;
+			|&nbsp;
+			<a href="login.jsp">Team Registration</a>
 		</div>
 	</div>
 
