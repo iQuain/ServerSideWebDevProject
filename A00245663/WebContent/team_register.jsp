@@ -85,7 +85,7 @@ span.psw {
 </head>
 <body>
 	<h2 style="text-align:center">Sign Up Today&excl;</h2>
-	<form action="post" method="TeamRegisterServlet">
+	<form action="TeamRegisterServlet" method="post">
 		<div class="container">
 			<label for="user"><b>Team Name</b></label>
 			<input type="text" placeholder="Enter Team Name" name="teamname" required>
