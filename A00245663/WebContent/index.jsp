@@ -40,7 +40,7 @@ body, html {
 			|&nbsp;
 			<a href="login.jsp">Login</a>&nbsp;
 			|&nbsp;
-			<a href="login.jsp">Team Registration</a>
+			<a href="team_register.jsp">Team Registration</a>
 		</div>
 	</div>
 
