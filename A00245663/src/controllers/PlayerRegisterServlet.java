@@ -39,8 +39,8 @@ public class PlayerRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Player player = new Player(request.getParameter("username"), 
-					request.getParameter("password"), request.getParameter("teamname"));
+		Player player = new Player(request.getParameter("username"), request.getParameter("teamname"),
+				request.getParameter("car"));
 		System.out.println(player.getUsername());
 			try {
 				PlayerDAO.instance.save(player);

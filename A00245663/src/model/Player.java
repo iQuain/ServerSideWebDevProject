@@ -2,22 +2,22 @@ package model;
 
 public class Player {
 
-	private int playerId = 0;
+	private int id = 0;
 	private String username = "";
-	private String password = "";
 	private String team = "";
+	private String car = "";
 	
-	public Player(String u, String p, String t) {
+	public Player(int i, String u, String t, String c) {
+		this.id = i;
 		this.username = u;
-		this.password = p;
 		this.team = t;
+		this.car = c;
 	}
 	
-	public Player(int i, String u, String p, String t) {
-		this.playerId = i;
+	public Player(String u, String t, String c) {
 		this.username = u;
-		this.password = p;
 		this.team = t;
+		this.car = c;
 	}
 
 	public String getUsername() {
@@ -28,20 +28,28 @@ public class Player {
 		this.username = username;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getTeam() {
 		return team;
 	}
 
 	public void setTeam(String team) {
 		this.team = team;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int playerId) {
+		this.id = playerId;
+	}
+
+	public String getCar() {
+		return car;
+	}
+
+	public void setCar(String car) {
+		this.car = car;
 	}
 	
 }

@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.TeamDAO;
-import model.Team;
+import DAO.UserDAO;
+import model.User;
 
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/TeamRegisterServlet")
-public class TeamRegisterServlet extends HttpServlet {
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TeamRegisterServlet() {
+    public RegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,12 +39,11 @@ public class TeamRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Team team = new Team(request.getParameter("teamname"), 
-					request.getParameter("region"));
-		System.out.println(team.getName());
+		User user = new User(request.getParameter("username"), request.getParameter("password"));
+		System.out.println(user.getName());
 			try {
-				TeamDAO.instance.save(team);
-				request.getRequestDispatcher("player_register.jsp").forward(request, response);
+				UserDAO.instance.save(user);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {

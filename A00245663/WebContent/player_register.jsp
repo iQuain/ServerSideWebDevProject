@@ -93,16 +93,16 @@ span.psw {
 			<label for="team"><b>Team Name</b></label>
 			<input type="text" placeholder="Enter Team Name" name="teamname" required>
 			
-			<label for="psw1"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="password" required>
-			
-			<label for="psw2"><b>Confirm Password</b></label>
-			<input type="password" placeholder="Enter Password Again" name="confirmpass" required>
+			<label for="psw1"><b>Car</b></label>
+			<input type="text" placeholder="Enter Car" name="car" required>
 		</div>
 		<div class="container" style="background-color:#f1f1f1">
-			<button type="submit">Register</button>
+			<button type="submit">Sign Up&excl;</button>
 		</div>
 	</form>
+	<div>
+		<a href="home.jsp"><button class="w3-light-grey w3-button">Cancel</button></a>
+	</div>
 
 </body>
 </html>

@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Player;
+import model.User;
 
-public enum PlayerDAO {
+public enum UserDAO {
 
 	instance;
 	
@@ -29,34 +29,36 @@ public enum PlayerDAO {
 		return null;
 	}
 	
-	public void save(Player player) throws SQLException, ClassNotFoundException {
+	public void save(User user) throws SQLException, ClassNotFoundException {
 		Connection con = getConnection();
 		
 		Statement stmt = con.createStatement();
-		stmt.executeUpdate("INSERT INTO PLAYERS(NAME, TEAM, CAR) "
-				+ "VALUES ('" + player.getUsername() + "','"
-				+ player.getTeam() + "','" + player.getCar() + "')");
+		stmt.executeUpdate("INSERT INTO users(NAME, PASSWORD) "
+				+ "VALUES ('" + user.getName() + "','"
+				+ user.getPassword() + "')");
 		stmt.close();
 		con.close();
 	}
 	
-	public List<Player> list() throws ClassNotFoundException, SQLException {
+	public User checkLogin(String name, String password) throws ClassNotFoundException, SQLException {
 		Connection con = getConnection();
+		User user = null;
 		
-		List<Player> playerList = new ArrayList<Player>();
 		try {
-			PreparedStatement psmt = con.prepareStatement("SELECT * FROM players ORDER BY team");
-			
+			PreparedStatement psmt = con.prepareStatement("SELECT * FROM users"
+					+ " WHERE NAME= ? AND PASSWORD = ?");
+			psmt.setString(1, name);
+			psmt.setString(2, password);
 			ResultSet rs = psmt.executeQuery();
 			
-			while(rs.next()) {
-				Player p = new Player(rs.getInt("id"), rs.getString("name"),rs.getString("team"), rs.getString("car"));
-				playerList.add(p);
+			if(rs.next()) {
+				user = new User(rs.getString("name"), rs.getString("password"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return playerList;
+		
+		return user;
 	}
 	
 }

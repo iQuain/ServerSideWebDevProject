@@ -36,11 +36,9 @@ body, html {
 				<hr class="w3-border-grey" style="margin: auto; width: 40%">
 		</div>
 		<div class="w3-display-bottommiddle w3-padding-large" style="text-align:center">
-			<a href="player_register.jsp">Player Registration</a>&nbsp; 
+			<a href="register.jsp">Register</a>&nbsp; 
 			|&nbsp;
 			<a href="login.jsp">Login</a>&nbsp;
-			|&nbsp;
-			<a href="team_register.jsp">Team Registration</a>
 		</div>
 	</div>
 

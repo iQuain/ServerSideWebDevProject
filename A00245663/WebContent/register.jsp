@@ -84,17 +84,17 @@ span.psw {
 <title>Player Sign Up</title>
 </head>
 <body>
-	<h2 style="text-align:center">Login&excl;</h2>
-	<form action="LoginServlet" method="post">
+	<h2 style="text-align:center">Register&excl;</h2>
+	<form action="RegisterServlet" method="post">
 		<div class="container">
 			<label for="user"><b>Name</b></label>
-			<input type="text" placeholder="Enter Name" name="name" required>
+			<input type="text" placeholder="Enter Username" name="username" required>
 			
 			<label for="psw1"><b>Password</b></label>
 			<input type="password" placeholder="Enter Password" name="password" required>
 		</div>
 		<div class="container" style="background-color:#f1f1f1">
-			<button type="submit">Login</button>
+			<button type="submit">Register</button>
 		</div>
 	</form>
 	<div>

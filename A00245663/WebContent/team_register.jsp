@@ -94,9 +94,12 @@ span.psw {
 			<input type="text" placeholder="Enter Region" name="region" required>
 		</div>
 		<div class="container" style="background-color:#f1f1f1">
-			<button type="submit">Register</button>
+			<button type="submit">Sign Up&excl;</button>
 		</div>
 	</form>
+	<div>
+		<a href="home.jsp"><button class="w3-light-grey w3-button">Cancel</button></a>
+	</div>
 
 </body>
 </html>

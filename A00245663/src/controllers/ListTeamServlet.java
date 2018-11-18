@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +14,16 @@ import DAO.TeamDAO;
 import model.Team;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class ListTeamServlet
  */
-@WebServlet("/TeamRegisterServlet")
-public class TeamRegisterServlet extends HttpServlet {
+@WebServlet("/ListTeamServlet")
+public class ListTeamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TeamRegisterServlet() {
+    public ListTeamServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,23 +34,21 @@ public class TeamRegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		try {
+			List<Team> teamList = TeamDAO.instance.list();
+			request.setAttribute("teamList", teamList);
+			request.getRequestDispatcher("teamList.jsp").forward(request, response);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Team team = new Team(request.getParameter("teamname"), 
-					request.getParameter("region"));
-		System.out.println(team.getName());
-			try {
-				TeamDAO.instance.save(team);
-				request.getRequestDispatcher("player_register.jsp").forward(request, response);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+		doGet(request, response);
 	}
-
 }

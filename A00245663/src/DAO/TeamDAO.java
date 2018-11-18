@@ -2,9 +2,14 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Player;
 import model.Team;
 
 public enum TeamDAO {
@@ -33,6 +38,25 @@ public enum TeamDAO {
 				+ "VALUES ('" + team.getName() + "','" + team.getRegion() + "')");
 		stmt.close();
 		con.close();
+	}
+	
+	public List<Team> list() throws ClassNotFoundException, SQLException {
+		Connection con = getConnection();
+		
+		List<Team> teamList = new ArrayList<Team>();
+		try {
+			PreparedStatement psmt = con.prepareStatement("SELECT * FROM teams");
+			
+			ResultSet rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				Team t = new Team(rs.getString("name"),rs.getString("region"));
+				teamList.add(t);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return teamList;
 	}
 	
 }
