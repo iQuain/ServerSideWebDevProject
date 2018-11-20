@@ -14,6 +14,13 @@
     margin-right:auto;
 }
 
+#search {
+	text-align:center;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 #players {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -46,6 +53,27 @@
 	<h2 style="text-align:center; padding-top:0px; padding-bottom:0px;" class="w3-green">Player List</h2>
 	<h3 style="text-align:center; padding-top:0px;" class="w3-light-grey"><i>This is the player list&excl;  You can view 
 	all of the players that have signed up for the tournament and their details here&excl;</i></h3>
+
+	<table id="search">
+		<td>
+			<form action="NameSearchServlet" method="post">
+				<input type="text" placeholder="Enter Name" name="search_name">
+				<button type="submit" class="w3-button w3-round-xlarge w3-hover-black w3-blue w3-large">Search</button>
+			</form>
+		</td>
+		<td>
+			<form action="TeamSearchServlet" method="post">
+				<input type="text" placeholder="Enter Team" name="search_team">
+				<button type="submit" class="w3-button w3-round-xlarge w3-hover-black w3-blue w3-large">Search</button>
+			</form>
+		</td>
+		<td>
+			<form action="CarSearchServlet" method="post">
+				<input type="text" placeholder="Enter Car" name="search_car">
+				<button type="submit" class="w3-button w3-round-xlarge w3-hover-black w3-blue w3-large">Search</button>
+			</form>
+		</td>
+	</table>
 
 	<table id="players">
 		<tr>
